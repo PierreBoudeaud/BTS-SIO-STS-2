@@ -1,0 +1,3 @@
+nom VM: debianGRH-db
+domaine :
+Password Root: grh2016
