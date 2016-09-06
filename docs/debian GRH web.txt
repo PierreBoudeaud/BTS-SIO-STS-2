@@ -1,3 +1,9 @@
 nom VM: debianGRH_web
 domaine :
 Password Root: grh2016
+
+
+#apt-get install openssh-server
+#apt-get install apache2
+#apt-get install php5
+#apt-get install git
