@@ -9,7 +9,8 @@ create table EMPLOYE(
 	EMP_Portable varchar(10),
 	EMP_email varchar(50),
 	EMP_DateEmbauche date,
-	EMP_quotite decimal(2,2),
+	EMP_quotite decimal(3,2),
 	constraint pk_EMP primary key(EMP_Matricule)
-)
+);
 	
+insert into EMPLOYE values ('A01','Boudeaud','Pierre','7 boulevard du 8 mai 1985','Loudun', '86200','0546054605','0607080910','boudeaudpierre@gmail.com','13/09/2016',1);
