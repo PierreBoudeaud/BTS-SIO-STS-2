@@ -1,6 +1,7 @@
 <?php
-
-	class Employe{
+	include('Model.php')
+	
+	class Employe extends Model {
 		private $EMP_Matricule;
 		private $EMP_Nom;
 		private $EMP_Prenom;
@@ -12,6 +13,10 @@
 		private $EMP_Email;
 		private $EMP_DateEmbauche;
 		private $EMP_Quotite;
+		
+		//Attributs techniques
+		protected $table = 'employe';
+		protected $pk = 'EMP_Matricule';
 		
 		public function __construct($EMP_Matricule, $EMP_Nom, $EMP_Prenom, $EMP_Rue, $EMP_Ville, $EMP_CodePostal, $EMP_Tel, $EMP_Portable, $EMP_Email, $EMP_DateEmbauche, $EMP_Quotite){
 			$this->EMP_Matricule = $EMP_Matricule;
@@ -25,6 +30,8 @@
 			$this->EMP_Email = $EMP_Email;
 			$this->EMP_DateEmbauche = $EMP_DateEmbauche;
 			$this->EMP_Quotite = $EMP_Quotite;
+			$this->table = 'employe';
+			$this->pk = 'EMP_Matricule';
 		}
 		
 		public function setMatricule($EMP_Matricule){

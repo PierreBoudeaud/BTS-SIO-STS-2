@@ -9,7 +9,22 @@
 			$this->pk = "";
 		}
 		//fonction pour la connexion
-		
+	protected function connexion(){
+			$host = "localhost";	
+			$nomdb = "forum";
+			$user ="postgres";
+			$mdp = "pgadmin";
+			
+			try{
+				$db = new PDO("pgsql:host=".$host.";dbname=".$nomdb, $user, $mdp);
+				echo "<br/>connexion...<br/>";
+			}
+			catch(PDOException $e){
+				echo "ERREUR : ".$e->getMessage()."<br/>";
+				die();
+			}
+			return $db;
+		}
 		/*--A faire par Pierre--*/
 		
 		
@@ -51,6 +66,17 @@
 		}
 		
 		public function create(){
+			$req3 = "INSERT INTO {$this->$table}
+						VALUES (";
+						
+			foreach($this as $cle=>$val){
+				$req3 = $req3.$val.", ";
+				
+			}
+			$req3 = $req3.")";
 			
+			$db = $this->connexion();
+						
+			$db->execute($req3);
 		}
 	}
