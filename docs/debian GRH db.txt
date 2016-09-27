@@ -1,3 +1,16 @@
-nom VM: debianGRH-db
-domaine :
-Password Root: grh2016
+==========  MACHINE  ==========
+Nom VM:		debianGRH-db
+Domaine:
+Password Root:	grh2016
+IP (fixe):	192.168.104.162
+Masque:		255.255.255.0
+
+
+===========  BASE  ============
+Login:		postgres
+Password:	EufVeyg1^
+
+
+=====  UTILISATEUR  BASE  =====
+Nom base:		grh
+Utilisateur associé:	grh2016
