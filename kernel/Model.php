@@ -3,11 +3,13 @@
 	abstract class Model{
 		protected $table;
 		protected $pk;
+		protected $attribtech = array('table', 'pk','attribtech');
 		
 		public function __construct(){
 			$this->table = "";
 			$this->pk = "";
 		}
+		
 		//fonction pour la connexion
 	protected function connexion(){
 			$host = "localhost";	
@@ -40,7 +42,7 @@
 		}
 		
 		public function read($id){
-			$req2 = "SELECT * FROM {$this->table} WHERE {$this->pk}";
+			$req2 = "SELECT * FROM {$this->table} WHERE {$this->pk} = $id";
 			
 			$base = $this->connexion();
 			
@@ -61,22 +63,64 @@
 			//return($infos);
 		}
 		
-		public function update(){
-			
+		public function find($condition){
+			$sql="SELECT * FROM {$this->table} WHERE $condition";
+			//echo $sql;
+			$connexion=$this->connexion();
+			$sql=$connexion->query($sql);
+			$tmp[]="";
+			while ($result=$sql->fetch(PDO::FETCH_ASSOC)){;
+				$tmp[] = $result;
+			}
+			return $tmp;
 		}
 		
 		public function create(){
-			$req3 = "INSERT INTO {$this->$table}
-						VALUES (";
-						
+			$req3 = "INSERT INTO {$this->table}(";
+			$notFirstComma = 0;
 			foreach($this as $cle=>$val){
-				$req3 = $req3.$val.", ";
-				
+				if(!in_array($cle,$this->attribtech) && $cle != $this->pk){
+					if($notFirstComma > 0){
+						$req3 = $req3.", ";
+					}
+					$req3 = $req3.$cle;
+					$notFirstComma++;
+				}
+			}
+			$req3="{$req3}) VALUES(";
+			$notFirstComma = 0;
+			foreach($this as $cle=>$val){
+				if(!in_array($cle,$this->attribtech) && $cle != $this->pk){
+					if($notFirstComma > 0){
+						$req3 = $req3.", ";
+					}
+					$notFirstComma++;
+					$req3 ="{$req3}'{$val}'";
+				}
 			}
 			$req3 = $req3.")";
-			
-			$db = $this->connexion();
+			echo "<br/>".$req3."<br/>";
+			//$db = $this->connexion();
 						
-			$db->execute($req3);
+			//$db->execute($req3);
+		}
+		
+		public function update($id){
+			$req3 = "UPDATE {$this->table} SET ";
+			$notFirstComma = 0;
+			foreach($this as $cle=>$val){
+				if(!in_array($cle,$this->attribtech) && $cle != $this->pk){
+					if($notFirstComma > 0){
+						$req3 = $req3.", ";
+					}
+					$notFirstComma++;
+					$req3 =" {$req3}{$cle} = '{$val}'";
+				}
+			}
+			$req3 = $req3." WHERE {$this->pk} = {$id}";
+			echo $req3;
+			//$db = $this->connexion();
+						
+			//$db->execute($req3);
 		}
 	}

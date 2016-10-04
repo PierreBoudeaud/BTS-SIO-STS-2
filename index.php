@@ -16,7 +16,10 @@
 	$unEmploye->create();*/
 	
 	$infos = $unEmploye->read(3);
+	echo "<br/><br/>";
 	print_r ($unEmploye);
+	$a = $unEmploye->find("pseudoutilisateur = 'Pikachu'");
+	print_r($a)
 	
 	/*echo "<br/>".
 	"Matricule : ".
@@ -30,4 +33,9 @@
 	
 	//$unEmploye->delete(4);
 	
+	echo "<br/><br/>";
+	$unEmploye->create();
+	
+	echo "<br/><br/>";
+	$unEmploye->update();
 ?>
