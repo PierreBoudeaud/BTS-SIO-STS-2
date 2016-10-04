@@ -42,7 +42,7 @@
 		*		Supprime un enregistrement dans la base de données en fonction de l'id
 		*
 		*		@param String $id identifiant de l'enregistrement à supprimer
-		*		@see connexion
+		*		@see Model::connexion()		 Connexion à la base
 		*		@author LUTAU T
 		*		@date 27/09/2016
 		*/
@@ -58,10 +58,11 @@
 		}
 		
 		/**
-		*		constructeur - Constructeur de la classe Model
-		*		Construit la classe Model
+		*		read - Lire un enregistrement
+		*		Lit un enregistrement en fonction de l'id
 		*
-		*		@return La construction de la classe Model
+		*		@param String $id identifiant de l'enregistrement à lire
+		*		@see Model::connexion()		Connexion à la base
 		*		@author LUTAU T
 		*		@date 27/09/2016
 		*/
@@ -87,6 +88,15 @@
 			//return($infos);
 		}
 		
+		/**
+		*		find - trouver un enregistrement
+		*		Trouve un enregistrement en fonction d'une condition
+		*
+		*		@param String $condition condition pour trier les enregistrements à trouver
+		*		@see Model::connexion()		Connexion à la base
+		*		@author LUTAU T
+		*		@date 27/09/2016
+		*/
 		public function find($condition){
 			$sql="SELECT * FROM {$this->table} WHERE $condition";
 			//echo $sql;
@@ -99,6 +109,15 @@
 			return $tmp;
 		}
 		
+		/**
+		*		create - Créer un enregistrement
+		*		Créer un enregistrement
+		*
+		*		@param String $id identifiant de l'enregistrement à lire
+		*		@see Model::connexion()		Connexion à la base
+		*		@author LUTAU T
+		*		@date 27/09/2016
+		*/
 		public function create(){
 			$req3 = "INSERT INTO {$this->table}(";
 			$notFirstComma = 0;
