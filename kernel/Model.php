@@ -1,5 +1,7 @@
 <?php
-
+	/*
+	*		@author LUTAU T
+	*/
 	abstract class Model{
 		protected $table;
 		protected $pk;
@@ -110,10 +112,9 @@
 		}
 		
 		/**
-		*		create - Créer un enregistrement
-		*		Créer un enregistrement
+		*		create - Créer un enregistrement dans la base de données
+		*		Créer un enregistrement à partir de l'objet courant
 		*
-		*		@param String $id identifiant de l'enregistrement à lire
 		*		@see Model::connexion()		Connexion à la base
 		*		@author LUTAU T
 		*		@date 27/09/2016
@@ -148,6 +149,15 @@
 			//$db->execute($req3);
 		}
 		
+		/**
+		*		update - Modifier un enregistrement dans la base de données
+		*		Modifie un enregistrement à partir de l'identifiant de l'objet courant
+		*
+		*		@param String $id identifiant de l'enregistrement à modifier
+		*		@see Model::connexion()		Connexion à la base
+		*		@author LUTAU T
+		*		@date 27/09/2016
+		*/
 		public function update($id){
 			$req3 = "UPDATE {$this->table} SET ";
 			$notFirstComma = 0;
