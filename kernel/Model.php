@@ -10,24 +10,26 @@
 			$this->pk = "";
 		}
 		
-		//fonction pour la connexion
-	protected function connexion(){
-			$host = "localhost";	
-			$nomdb = "forum";
-			$user ="postgres";
-			$mdp = "pgadmin";
-			
+		/**
+		*		connexion - Connexion à la base de données
+		*		Charge les informations de connexion depuis un fichier configuration (.ini)
+		*
+		*		@return La connexion à la base de donnée
+		*		@
+		*		@author BOUDEAUD P
+		*		@date 30/09/2016
+		*/
+		protected function connexion(){
+			$ini_parse = parse_ini_file("/cfg/bdd.ini");//Fichier de configuration
+			$dsn = $ini_parse['type'].":dbname=".$ini_parse['dbName'].";host=".$ini_parse['host'].";port=".$ini_parse['port'];
 			try{
-				$db = new PDO("pgsql:host=".$host.";dbname=".$nomdb, $user, $mdp);
-				echo "<br/>connexion...<br/>";
+				$DB = new PDO($dsn, $ini_parse['pseudo'], $ini_parse['mdp']);
+			}catch(PDOException $e){
+				echo "Connexion échouée : ".$e->getMessage();
+				$DB = null;
 			}
-			catch(PDOException $e){
-				echo "ERREUR : ".$e->getMessage()."<br/>";
-				die();
-			}
-			return $db;
+			return $DB;
 		}
-		/*--A faire par Pierre--*/
 		
 		
 		public function delete($id){
