@@ -5,7 +5,13 @@
 		protected $pk;
 		protected $attribtech = array('table', 'pk','attribtech');
 		
-		
+		/**
+		*		__construct - Constructeur de la classe Model
+		*		$table et $pk font partis de l'objet Model.
+		*
+		*		@author LUTAU T
+		*		@date 27/09/2016
+		*/
 		public function __construct(){
 			$this->table = "";
 			$this->pk = "";
@@ -17,7 +23,7 @@
 		*
 		*		@return PDO La connexion à la base de donnée
 		*		@author BOUDEAUD P
-		*		@date 30/09/2016
+		*		@date 04/10/2016
 		*/
 		protected function connexion(){
 			$ini_parse = parse_ini_file("/cfg/bdd.ini");//Fichier de configuration
@@ -31,7 +37,15 @@
 			return $DB;
 		}
 		
-		
+		/**
+		*		delete - Suppression un enregistrement de la base de données
+		*		Supprime un enregistrement dans la base de données en fonction de l'id
+		*
+		*		@param String $id identifiant de l'enregistrement à supprimer
+		*		@see connexion
+		*		@author LUTAU T
+		*		@date 27/09/2016
+		*/
 		public function delete($id){
 			$req1 = "DELETE FROM {$this->table} WHERE {$this->pk} = $id";
 			
@@ -43,6 +57,14 @@
 			//echo $req;
 		}
 		
+		/**
+		*		constructeur - Constructeur de la classe Model
+		*		Construit la classe Model
+		*
+		*		@return La construction de la classe Model
+		*		@author LUTAU T
+		*		@date 27/09/2016
+		*/
 		public function read($id){
 			$req2 = "SELECT * FROM {$this->table} WHERE {$this->pk} = $id";
 			
