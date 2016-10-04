@@ -45,7 +45,6 @@
 		*		setMatricule - Modifie le matricule de l'employé
 		*
 		*		@param String Le nouveau matricule
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setMatricule($EMP_Matricule){
@@ -56,7 +55,6 @@
 		*		getMatricule - Renvoie le matricule de l'employé
 		*
 		*		@return String Le matricule
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getMatricule(){
@@ -67,7 +65,6 @@
 		*		setNom - Modifie le nom de l'employé
 		*
 		*		@param String Le nouveau nom
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setNom($EMP_Nom){
@@ -78,7 +75,6 @@
 		*		getNom - Renvoie le nom de l'employé
 		*
 		*		@return String Le nom
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getNom(){
@@ -89,7 +85,6 @@
 		*		setPrenom - Modifie le prénom de l'employé
 		*
 		*		@param String Le nouveau prénom
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setPrenom($EMP_Prenom){
@@ -100,7 +95,6 @@
 		*		getPrenom - Renvoie le prénom de l'employé
 		*
 		*		@return String Le prénom
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getPrenom(){
@@ -111,7 +105,6 @@
 		*		setRue - Modifie le numéro de rue et la rue du domicile de l'employé
 		*
 		*		@param String Le nouveau prénom
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setRue($EMP_Rue){
@@ -122,7 +115,6 @@
 		*		getCodePostal - Renvoie le numéro de rue et la rue du domicile de l'employé
 		*
 		*		@return String Le nouveau numéro suivi de la nouvelle rue
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getRue(){
@@ -133,7 +125,6 @@
 		*		setVille - Modifie la ville du domicile de l'employé
 		*
 		*		@param String La nouvelle ville
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setVille($EMP_Ville){
@@ -144,7 +135,6 @@
 		*		getVille - Renvoie la ville du domicile de l'employé
 		*
 		*		@return String La ville
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getVille(){
@@ -155,7 +145,6 @@
 		*		setCodePostal - Modifie le code postal domicile de l'employé
 		*
 		*		@param String La nouveau code postal
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setCodePostal($EMP_CodePostal){
@@ -166,7 +155,6 @@
 		*		getCodePostal - Renvoie le code postal du domicile de l'employé
 		*
 		*		@return String Le code postal
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getCodePostal($EMP_CodePostal){
@@ -177,7 +165,6 @@
 		*		setTel - Modifie le numéro de téléphone principal de l'employé
 		*
 		*		@param String La nouveau numéro principal
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setTel ($EMP_Tel){
@@ -188,7 +175,6 @@
 		*		getTel - Renvoie le numéro de téléphone principal de l'employé
 		*
 		*		@return String Le numéro principal
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getTel(){
@@ -199,7 +185,6 @@
 		*		setPortable - Modifie le numéro de téléphone portable de l'employé
 		*
 		*		@param String La nouveau numéro de portable
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setPortable($EMP_Portable){
@@ -210,7 +195,6 @@
 		*		getPortable - Renvoie le numéro de téléphone portable de l'employé
 		*
 		*		@return String Le numéro de portable
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getPortable(){
@@ -221,7 +205,6 @@
 		*		setEmail - Modifie l'email de l'employé
 		*
 		*		@param String Le nouvel email
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setEmail($EMP_Email){
@@ -232,7 +215,6 @@
 		*		getEmail - Renvoie l'email de l'employé
 		*
 		*		@return String L'email
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getEmail(){
@@ -243,7 +225,6 @@
 		*		setDateEmbauche - Modifie la date d'embauche de l'employé
 		*
 		*		@param Date La nouvelle date
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setDateEmbauche($EMP_DateEmbauche){
@@ -254,7 +235,6 @@
 		*		getDateEmbauche - Renvoie la date d'embauche de l'employé
 		*
 		*		@return date La date d'embauche
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getDateEmbauche(){
@@ -265,7 +245,6 @@
 		*		setQuotite - Modifie la quotite de l'employé
 		*
 		*		@param float La nouvelle quotité
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function setQuotite($EMP_Quotite){
@@ -276,7 +255,6 @@
 		*		getQuotite - Renvoie la quotité d'un employé
 		*
 		*		@return float La quotite (décimal à précision 3,2)
-		*		@author QUINTELA J
 		*		@date 04/10/2016
 		*/
 		public function getQuotite(){
