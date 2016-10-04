@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+	phpinfo();//Test php info
 	include ('\kernel\Employe.php');
 			
 	$unEmploye = new Employe (1,"","", "");
@@ -12,8 +13,8 @@
 	echo "Vos coordonées telephoniques : "."Fixe : "$unEmploye->getTel()." "."Portable : ".$unEmploye->getPortable()."<br/>";
 	echo "Votre ancienneté : ".$unEmploye->getDate()."<br/>";
 	echo "Votre quotité : ".$unEmploye->getQuotite().""<br/>;
-	
-	$unEmploye->create();*/
+	*/
+	$unEmploye->create();
 	
 	$infos = $unEmploye->read(3);
 	echo "<br/><br/>";
