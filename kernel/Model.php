@@ -5,6 +5,7 @@
 		protected $pk;
 		protected $attribtech = array('table', 'pk','attribtech');
 		
+		
 		public function __construct(){
 			$this->table = "";
 			$this->pk = "";
@@ -14,8 +15,7 @@
 		*		connexion - Connexion à la base de données
 		*		Charge les informations de connexion depuis un fichier configuration (.ini)
 		*
-		*		@return La connexion à la base de donnée
-		*		@
+		*		@return PDO La connexion à la base de donnée
 		*		@author BOUDEAUD P
 		*		@date 30/09/2016
 		*/
