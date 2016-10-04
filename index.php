@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 
 <?php
-	phpinfo();//Test php info
 	include ('\kernel\Employe.php');
 			
-	$unEmploye = new Employe (1,"","", "");
+	$unEmploye = new Employe ("","","", "", "", "", "", "", "", "", "");
 			
 	/*echo "Votre Matricule : ".$unEmploye->getMatricule()."<br/>";
 	echo "Votre identité : ".$unEmploye->getNom().$unEmploye->getPrenom()."<br/>";
@@ -14,13 +13,13 @@
 	echo "Votre ancienneté : ".$unEmploye->getDate()."<br/>";
 	echo "Votre quotité : ".$unEmploye->getQuotite().""<br/>;
 	*/
-	$unEmploye->create();
+	//$unEmploye->create();
 	
-	$infos = $unEmploye->read(3);
+	$infos = $unEmploye->read("A01");
 	echo "<br/><br/>";
 	print_r ($unEmploye);
 	$a = $unEmploye->find("pseudoutilisateur = 'Pikachu'");
-	print_r($a)
+	print_r($a);
 	
 	/*echo "<br/>".
 	"Matricule : ".

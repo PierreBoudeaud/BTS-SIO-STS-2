@@ -5,9 +5,10 @@
 	*		@version 1.0
 	*/
 	
-	include('Model.php')
+	include('Model.php');
 	
 	class Employe extends Model {
+		//Attributs métier
 		private $EMP_Matricule;
 		private $EMP_Nom;
 		private $EMP_Prenom;
@@ -218,7 +219,7 @@
 		*		@date 04/10/2016
 		*/
 		public function getEmail(){
-			return $EMP_Email
+			return $EMP_Email;
 		}
 		
 		/**
