@@ -53,4 +53,6 @@
 	echo "<br/><br/>";
 	//$unEmploye->update();
 	echo "</html>";
+	
+	echo ini_get("display_errors");
 ?>
