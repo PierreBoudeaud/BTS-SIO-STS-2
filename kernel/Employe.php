@@ -9,257 +9,252 @@
 	
 	class Employe extends Model {
 		//Attributs métier
-		private $EMP_Matricule;
-		private $EMP_Nom;
-		private $EMP_Prenom;
-		private $EMP_Rue;
-		private $EMP_Ville;
-		private $EMP_CodePostal;
-		private $EMP_Tel;
-		private $EMP_Portable;
-		private $EMP_Email;
-		private $EMP_DateEmbauche;
-		private $EMP_Quotite;
+		protected $emp_matricule;
+		protected $emp_nom;
+		protected $emp_prenom;
+		protected $emp_rue;
+		protected $emp_ville;
+		protected $emp_codepostal;
+		protected $emp_tel;
+		protected $emp_portable;
+		protected $emp_email;
+		protected $emp_dateembauche;
+		protected $emp_quotite;
 		
-		//Attributs techniques
-		protected $table = 'employe';
-		protected $pk = 'EMP_Matricule';
-		
-		
-		public function __construct($EMP_Matricule, $EMP_Nom, $EMP_Prenom, $EMP_Rue, $EMP_Ville, $EMP_CodePostal, $EMP_Tel, $EMP_Portable, $EMP_Email, $EMP_DateEmbauche, $EMP_Quotite){
-			$this->EMP_Matricule = $EMP_Matricule;
-			$this->EMP_Nom = $EMP_Nom;
-			$this->EMP_Prenom = $EMP_Prenom;
-			$this->EMP_Rue = $EMP_Rue;
-			$this->EMP_Ville = $EMP_Ville;
-			$this->EMP_CodePostal = $EMP_CodePostal;
-			$this->EMP_Tel = $EMP_Tel;
-			$this->EMP_Portable = $EMP_Portable;
-			$this->EMP_Email = $EMP_Email;
-			$this->EMP_DateEmbauche = $EMP_DateEmbauche;
-			$this->EMP_Quotite = $EMP_Quotite;
-			$this->table = 'employe';
-			$this->pk = 'EMP_Matricule';
+		public function __construct($emp_matricule, $emp_nom, $emp_prenom, $emp_rue, $emp_ville, $emp_codepostal, $emp_tel, $emp_portable, $emp_email, $emp_dateembauche, $emp_quotite){
+			parent::__construct("employe", "emp_matricule", false);
+			$this->emp_matricule = $emp_matricule;
+			$this->emp_nom = $emp_nom;
+			$this->emp_prenom = $emp_prenom;
+			$this->emp_rue = $emp_rue;
+			$this->emp_ville = $emp_ville;
+			$this->emp_codepostal = $emp_codepostal;
+			$this->emp_tel = $emp_tel;
+			$this->emp_portable = $emp_portable;
+			$this->emp_email = $emp_email;
+			$this->emp_dateembauche = $emp_dateembauche;
+			$this->emp_quotite = $emp_quotite;
+			
 		}
 		
 		/**
-		*		setMatricule - Modifie le matricule de l'employé
+		*		setmatricule - modifie le matricule de l'employé
 		*
-		*		@param String Le nouveau matricule
+		*		@param string le nouveau matricule
 		*		@date 04/10/2016
 		*/
-		public function setMatricule($EMP_Matricule){
-			$this->EMP_Matricule = $EMP_Matricule;
+		public function setMatricule($emp_matricule){
+			$this->emp_matricule = $emp_matricule;
 		}
 		
 		/**
-		*		getMatricule - Renvoie le matricule de l'employé
+		*		getmatricule - renvoie le matricule de l'employé
 		*
-		*		@return String Le matricule
+		*		@return string le matricule
 		*		@date 04/10/2016
 		*/
 		public function getMatricule(){
-			return $EMP_Matricule;
+			return $this->emp_matricule;
 		}
 		
 		/**
-		*		setNom - Modifie le nom de l'employé
+		*		setnom - modifie le nom de l'employé
 		*
-		*		@param String Le nouveau nom
+		*		@param string le nouveau nom
 		*		@date 04/10/2016
 		*/
-		public function setNom($EMP_Nom){
-			$this->EMP_Nom = $EMP_Nom;
+		public function setNom($emp_nom){
+			$this->emp_nom = $emp_nom;
 		}
 		
 		/**
-		*		getNom - Renvoie le nom de l'employé
+		*		getnom - renvoie le nom de l'employé
 		*
-		*		@return String Le nom
+		*		@return string le nom
 		*		@date 04/10/2016
 		*/
 		public function getNom(){
-			return $EMP_Nom;
+			return $this->emp_nom;
 		}
 		
 		/**
-		*		setPrenom - Modifie le prénom de l'employé
+		*		setprenom - modifie le prénom de l'employé
 		*
-		*		@param String Le nouveau prénom
+		*		@param string le nouveau prénom
 		*		@date 04/10/2016
 		*/
-		public function setPrenom($EMP_Prenom){
-			$this->EMP_Prenom = $EMP_Prenom;
+		public function setPrenom($emp_prenom){
+			$this->emp_prenom = $emp_prenom;
 		}
 		
 		/**
-		*		getPrenom - Renvoie le prénom de l'employé
+		*		getprenom - renvoie le prénom de l'employé
 		*
-		*		@return String Le prénom
+		*		@return string le prénom
 		*		@date 04/10/2016
 		*/
 		public function getPrenom(){
-			return $EMP_Prenom;
+			return $this->emp_prenom;
 		}
 		
 		/**
-		*		setRue - Modifie le numéro de rue et la rue du domicile de l'employé
+		*		setrue - modifie le numéro de rue et la rue du domicile de l'employé
 		*
-		*		@param String Le nouveau prénom
+		*		@param string le nouveau prénom
 		*		@date 04/10/2016
 		*/
-		public function setRue($EMP_Rue){
-			$this->EMP_Rue = $EMP_Rue;
+		public function setRue($emp_rue){
+			$this->emp_rue = $emp_rue;
 		}
 		
 		/**
-		*		getCodePostal - Renvoie le numéro de rue et la rue du domicile de l'employé
+		*		getcodepostal - renvoie le numéro de rue et la rue du domicile de l'employé
 		*
-		*		@return String Le nouveau numéro suivi de la nouvelle rue
+		*		@return string le nouveau numéro suivi de la nouvelle rue
 		*		@date 04/10/2016
 		*/
 		public function getRue(){
-			return $EMP_Rue;
+			return $this->emp_rue;
 		}
 		
 		/**
-		*		setVille - Modifie la ville du domicile de l'employé
+		*		setville - modifie la ville du domicile de l'employé
 		*
-		*		@param String La nouvelle ville
+		*		@param string la nouvelle ville
 		*		@date 04/10/2016
 		*/
-		public function setVille($EMP_Ville){
-			$this->EMP_Ville = $EMP_Ville;
+		public function setVille($emp_ville){
+			$this->emp_ville = $emp_ville;
 		}
 		
 		/**
-		*		getVille - Renvoie la ville du domicile de l'employé
+		*		getville - renvoie la ville du domicile de l'employé
 		*
-		*		@return String La ville
+		*		@return string la ville
 		*		@date 04/10/2016
 		*/
 		public function getVille(){
-			return $EMP_Ville;
+			return $this->emp_ville;
 		}
 		
 		/**
-		*		setCodePostal - Modifie le code postal domicile de l'employé
+		*		setcodepostal - modifie le code postal domicile de l'employé
 		*
-		*		@param String La nouveau code postal
+		*		@param string la nouveau code postal
 		*		@date 04/10/2016
 		*/
-		public function setCodePostal($EMP_CodePostal){
-			$this->EMP_CodePostal = $EMP_CodePostal;
+		public function setCodePostal($emp_codepostal){
+			$this->emp_codepostal = $emp_codepostal;
 		}
 		
 		/**
-		*		getCodePostal - Renvoie le code postal du domicile de l'employé
+		*		getcodepostal - renvoie le code postal du domicile de l'employé
 		*
-		*		@return String Le code postal
+		*		@return string le code postal
 		*		@date 04/10/2016
 		*/
-		public function getCodePostal($EMP_CodePostal){
-			return $EMP_CodePostal;
+		public function getCodePostal(){
+			return $this->emp_codepostal;
 		}
 		
 		/**
-		*		setTel - Modifie le numéro de téléphone principal de l'employé
+		*		settel - modifie le numéro de téléphone principal de l'employé
 		*
-		*		@param String La nouveau numéro principal
+		*		@param string la nouveau numéro principal
 		*		@date 04/10/2016
 		*/
-		public function setTel ($EMP_Tel){
-			$this->EMP_Tel = $EMP_Tel;
+		public function setTel ($emp_tel){
+			$this->emp_tel = $emp_tel;
 		}
 		
 		/**
-		*		getTel - Renvoie le numéro de téléphone principal de l'employé
+		*		gettel - renvoie le numéro de téléphone principal de l'employé
 		*
-		*		@return String Le numéro principal
+		*		@return string le numéro principal
 		*		@date 04/10/2016
 		*/
 		public function getTel(){
-			return $EMP_Tel;
+			return $this->emp_tel;
 		}
 		
 		/**
-		*		setPortable - Modifie le numéro de téléphone portable de l'employé
+		*		setportable - modifie le numéro de téléphone portable de l'employé
 		*
-		*		@param String La nouveau numéro de portable
+		*		@param string la nouveau numéro de portable
 		*		@date 04/10/2016
 		*/
-		public function setPortable($EMP_Portable){
-			$this->EMP_Portable = $EMP_Portable;
+		public function setportable($emp_portable){
+			$this->emp_portable = $emp_portable;
 		}
 		
 		/**
-		*		getPortable - Renvoie le numéro de téléphone portable de l'employé
+		*		getportable - renvoie le numéro de téléphone portable de l'employé
 		*
-		*		@return String Le numéro de portable
+		*		@return string le numéro de portable
 		*		@date 04/10/2016
 		*/
 		public function getPortable(){
-			return $EMP_Portable;
+			return $this->emp_portable;
 		}
 		
 		/**
-		*		setEmail - Modifie l'email de l'employé
+		*		setemail - modifie l'email de l'employé
 		*
-		*		@param String Le nouvel email
+		*		@param string le nouvel email
 		*		@date 04/10/2016
 		*/
-		public function setEmail($EMP_Email){
-			$this->EMP_Email = $EMP_Email;
+		public function setEmail($emp_email){
+			$this->emp_email = $emp_email;
 		}
 		
 		/**
-		*		getEmail - Renvoie l'email de l'employé
+		*		getemail - renvoie l'email de l'employé
 		*
-		*		@return String L'email
+		*		@return string l'email
 		*		@date 04/10/2016
 		*/
 		public function getEmail(){
-			return $EMP_Email;
+			return $this->emp_email;
 		}
 		
 		/**
-		*		setDateEmbauche - Modifie la date d'embauche de l'employé
+		*		setdateembauche - modifie la date d'embauche de l'employé
 		*
-		*		@param Date La nouvelle date
+		*		@param date la nouvelle date
 		*		@date 04/10/2016
 		*/
-		public function setDateEmbauche($EMP_DateEmbauche){
-			$this->EMP_DateEmbauche = $EMP_DateEmbauche;
+		public function setDateEmbauche($emp_dateembauche){
+			$this->emp_dateembauche = $emp_dateembauche;
 		}
 		
 		/**
-		*		getDateEmbauche - Renvoie la date d'embauche de l'employé
+		*		getdateembauche - renvoie la date d'embauche de l'employé
 		*
-		*		@return date La date d'embauche
+		*		@return date la date d'embauche
 		*		@date 04/10/2016
 		*/
 		public function getDateEmbauche(){
-			return $EMP_DateEmbauche;
+			return $this->emp_dateembauche;
 		}
 		
 		/**
-		*		setQuotite - Modifie la quotite de l'employé
+		*		setquotite - modifie la quotite de l'employé
 		*
-		*		@param float La nouvelle quotité
+		*		@param float la nouvelle quotité
 		*		@date 04/10/2016
 		*/
-		public function setQuotite($EMP_Quotite){
-			$this->EMP_Quotite = $EMP_Quotite;
+		public function setQuotite($emp_quotite){
+			$this->emp_quotite = $emp_quotite;
 		}
 		
 		/**
-		*		getQuotite - Renvoie la quotité d'un employé
+		*		getquotite - renvoie la quotité d'un employé
 		*
-		*		@return float La quotite (décimal à précision 3,2)
+		*		@return float la quotite (décimal à précision 3,2)
 		*		@date 04/10/2016
 		*/
 		public function getQuotite(){
-			return $EMP_Quotite;
+			return $this->emp_quotite;
 		}
 	}
 ?>

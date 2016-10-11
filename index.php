@@ -1,41 +1,56 @@
-<!DOCTYPE html>
-
 <?php
+	echo "
+	<!DOCTYPE html>
+	<html>
+	<meta charset='UTF-8'>";
+	
 	include ('\kernel\Employe.php');
 			
 	$unEmploye = new Employe ("","","", "", "", "", "", "", "", "", "");
-			
-	/*echo "Votre Matricule : ".$unEmploye->getMatricule()."<br/>";
-	echo "Votre identit� : ".$unEmploye->getNom().$unEmploye->getPrenom()."<br/>";
-	echo "Vous habitez : ".$unEmploye->getRue().$unEmploye->getVille().$unEmploye->getCodePostal()."<br/>";
-	echo "Votre email : ".$unEmploye->getEmail()."<br/>";
-	echo "Vos coordon�es telephoniques : "."Fixe : "$unEmploye->getTel()." "."Portable : ".$unEmploye->getPortable()."<br/>";
-	echo "Votre anciennet� : ".$unEmploye->getDate()."<br/>";
-	echo "Votre quotit� : ".$unEmploye->getQuotite().""<br/>;
-	*/
+	print_r ($unEmploye);
+	echo "<br>";
+	/*echo "Votre Matricule : {$unEmploye->getMatricule()}<br/>";
+	echo "Votre identité : {$unEmploye->getNom()} {$unEmploye->getPrenom()}<br/>";
+	echo "Vous habitez : {$unEmploye->getRue()} {$unEmploye->getVille()} {$unEmploye->getCodePostal()}<br/>";
+	echo "Votre email : {$unEmploye->getEmail()}<br/>";
+	echo "Vos coordonées telephoniques : Fixe : {$unEmploye->getTel()} Portable : {$unEmploye->getPortable()}<br/>";
+	echo "Votre ancienneté : {$unEmploye->getDate()}<br/>";
+	echo "Votre quotité : {$unEmploye->getQuotite()}<br/>";*/
+	
 	//$unEmploye->create();
 	
-	$infos = $unEmploye->read("A01");
+	$unEmploye->read("A01");
+	print_r($unEmploye);
+	echo "<br>";
+	echo "Votre Matricule : {$unEmploye->getMatricule()}<br/>";
+	echo "Votre identité : {$unEmploye->getNom()} {$unEmploye->getPrenom()}<br/>";
+	echo "Vous habitez : {$unEmploye->getRue()} {$unEmploye->getVille()} {$unEmploye->getCodePostal()}<br/>";
+	echo "Votre email : {$unEmploye->getEmail()}<br/>";
+	echo "Vos coordonées télephoniques : Fixe : {$unEmploye->getTel()} Portable : {$unEmploye->getPortable()}<br/>";
+	echo "Votre ancienneté : {$unEmploye->getDateEmbauche()}<br/>";
+	echo "Votre quotité : {$unEmploye->getQuotite()}<br/>";
 	echo "<br/><br/>";
 	print_r ($unEmploye);
-	$a = $unEmploye->find("pseudoutilisateur = 'Pikachu'");
+	
+	$a = $unEmploye->find("emp_nom = 'Boudeaud'");
 	print_r($a);
 	
-	/*echo "<br/>".
-	"Matricule : ".
+	/*echo "<br/>{
+	"Matricule : {
 	$infos['EMP_Matricule'].
-	"<br/>".
-	"Nom : ".
+	"<br/>{
+	"Nom : {
 	$infos['EMP_Nom'].
-	"<br/>".
-	"Email : ".
+	"<br/>{
+	"Email : {
 	$infos['EMP_Email'];*/
 	
 	//$unEmploye->delete(4);
 	
 	echo "<br/><br/>";
-	$unEmploye->create();
+	//$unEmploye->create();
 	
 	echo "<br/><br/>";
-	$unEmploye->update();
+	//$unEmploye->update();
+	echo "</html>";
 ?>
