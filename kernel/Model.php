@@ -23,6 +23,16 @@
 			$this->attribTech = array('table', 'pk','attribTech', 'autoincrement');
 		}
 		
+		public function lineExist($id){
+			$req = "SELECT COUNT(*) FROM {$this->table} WHERE {$this->pk} = '{$id}'";
+			$DB = $this->connexion();
+			$rep = $DB->prepare($req);
+			$rep->execute();
+			$row = $rep->fetch();
+			return($row['0'] > 0);
+			
+		}
+		
 		/**
 		*		connexion - Connexion à la base de données
 		*		Charge les informations de connexion depuis un fichier configuration (.ini)
@@ -53,25 +63,26 @@
 		*		@date 27/09/2016
 		*/
 		public function create(){
-			$prop = "";
-			$value = "";
+				$prop = "";
+				$value = "";
 			
-			if($this->autoincrement){
-				$this->attribTech[] = $this->pk;
-			}
-			foreach($this as $key=>$val){
-				if(!in_array($key, $this->attribTech)){
-					$prop = "{$prop} {$key},";
-					$value = "{$value} {$val},";
+				if($this->autoincrement){
+					$this->attribTech[] = $this->pk;
 				}
-			}
-			$prop = substr($prop, 0, -1);
-			$value = substr($value, 0, -1);
-			$req = "INSERT INTO {$this->table}({$prop}) VALUES({$value})";
-			echo "<br>".$req."<br>";
-			$bdd = $this->connexion();
-			$bdd->exec($req);
-			$bdd = null;
+				foreach($this as $key=>$val){
+					if(!in_array($key, $this->attribTech)){
+						$prop = "{$prop} {$key},";
+						$value = "{$value} '{$val}',";
+					}
+				}
+				$prop = substr($prop, 0, -1);
+				$value = substr($value, 0, -1);
+				$req = "INSERT INTO {$this->table}({$prop}) VALUES({$value})";
+				echo "<br>".$req."<br>";
+				$bdd = $this->connexion();
+				$bool = $bdd->exec($req);
+				$bdd = null;
+				return $bool;
 		}
 		
 		
@@ -86,25 +97,28 @@
 		*		@date 27/09/2016
 		*/
 		public function update(){
-			$tabAttrib = $this->attribTech;
-			$req = "UPDATE {$this->table} SET ";
+			$bool = $this->lineExist($this->{$this->pk});
+			if($bool){
+				$tabAttrib = $this->attribTech;
+				$req = "UPDATE {$this->table} SET ";
 			
-			if(!in_array($this->pk, $tabAttrib)){
-				$tabAttrib[] = $this->pk;
-			}
-			
-			foreach($this as $key=>$val){
-				if(!in_array($key, $tabAttrib)){
-					$req = "{$req} {$key} = '{$val},'";
+				if(!in_array($this->pk, $tabAttrib)){
+					$tabAttrib[] = $this->pk;
 				}
+			
+				foreach($this as $key=>$val){
+					if(!in_array($key, $tabAttrib)){
+						$req = "{$req} {$key} = '{$val},'";
+					}
+				}
+				$req = substr($req, 0, -1);
+				$req = $req . " WHERE {$this->pk} = {$this->{$this->pk}}";
+				echo "<br>".$req."<br>";
+				$bdd = $this->connexion();
+				$bdd->exec($req);
+				$bdd = null;
 			}
-			$req = substr($req, 0, -1);
-			$pkBdd = $this->pk;
-			$req = $req . " WHERE {$this->pk} = {$this->$pkBdd}";
-			echo "<br>".$req."<br>";
-			$bdd = $this->connexion();
-			$bdd->exec($req);
-			$bdd = null;
+			return $bool;
 		}
 		
 		
@@ -118,12 +132,15 @@
 		*		@date 27/09/2016
 		*/
 		public function delete($id){
-			
-			$req = "DELETE FROM {$this->table} WHERE {$this->pk} = $id";
-			echo $req;
-			$bdd = $this->connexion();
-			$bdd->exec($req);
-			$bdd = null;
+			$bool = $this->lineExist($id);
+			if($bool){
+				$req = "DELETE FROM {$this->table} WHERE {$this->pk} = '{$id}'";
+				echo $req;
+				$bdd = $this->connexion();
+				$bdd->exec($req);
+				$bdd = null;
+			}
+			return $bool;
 		}
 		
 		
@@ -137,16 +154,20 @@
 		*		@date 27/09/2016
 		*/
 		public function read($id){
-			$req = "SELECT * FROM {$this->table} WHERE {$this->pk} = '{$id}'";
-			$bdd = $this->connexion();
-			$rep = $bdd->query($req);
-			$result = $rep->fetch(PDO::FETCH_ASSOC);
-			$rep->closeCursor();
-			$bdd = null;
-			foreach($result as $key=>$val){
-				$this->$key = $val;
+			$bool = $this->lineExist($id);
+			if($bool){
+				$req = "SELECT * FROM {$this->table} WHERE {$this->pk} = '{$id}'";
+				$bdd = $this->connexion();
+				$rep = $bdd->query($req);
+				$result = $rep->fetch(PDO::FETCH_ASSOC);
+				$rep->closeCursor();
+				$bdd = null;
+				foreach($result as $key=>$val){
+					$this->$key = $val;
 				
+				}
 			}
+			return $bool;
 		}
 		
 		
@@ -163,13 +184,15 @@
 			$req = "SELECT * FROM {$this->table} WHERE {$condition}";
 			$bdd = $this->connexion();
 			$rep = $bdd->query($req);
-			$tmp[] = "";
 			while($result = $rep->fetch(PDO::FETCH_ASSOC)){
 					$tmp[] = $result;
 			}
 			$rep->closeCursor();
 			$bdd = null;
-			return($tmp);
+			if(empty($tmp)){
+				$tmp[][] = null;
+			}
+		return($tmp);
 		}
 	}
 	
