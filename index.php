@@ -17,7 +17,38 @@
 	echo '<pre>';
 		print_r($_SERVER);//Affichage des informations serveur
 	echo '</pre>';
-
+	
+	//Test controller
+	if (empty($_GET['p'])){
+		$controller = "accueil";
+		$split = array();
+	}
+	else {
+		$split = explode("/", $_GET['p']);
+		$controller = $split['0'];
+	}
+	
+	//Test méthode
+	if (empty($split)){
+		$method = "index";
+	}
+	else {
+		$method = $split['1'];
+	}
+	
+	require(CONTROLLER.$controller.".php");
+	$objet = new $controller();
+	
+	if(method_exists($objet, $method)){
+		unset($split['0']);
+		unset($split['1']);
+		call_user_func_array(array($controller, $method), $split);
+	}
+	else{
+		call_user_func("erreur", "404");
+	}
+	
+	
 	echo ROOT. "<br>".WEBROOT. "<br>".MODEL. "<br>".CONTROLLER. "<br>".VIEW. "<br>".APP. "<br>".CONF; //[TEST] Affichage des CONSTANTES
 
 	?>
