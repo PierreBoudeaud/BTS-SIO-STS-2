@@ -36,7 +36,7 @@
 		$method = $split['1'];
 	}
 	
-	require(CONTROLLER.$controller.".php");
+	require_once(CONTROLLER.$controller.".php");
 	$objet = new $controller();
 	
 	if(method_exists($objet, $method)){
@@ -45,7 +45,10 @@
 		call_user_func_array(array($controller, $method), $split);
 	}
 	else{
-		call_user_func("erreur", "404");
+		require(CONTROLLER."Erreur.php")
+		$erreur = new Erreur();
+		print_r($erreur);
+		$erreur->404();
 	}
 	
 	

@@ -1,14 +1,12 @@
 <?php
 	require_once(APP."Controller.php");
-	class Employe extends Controller{
-		
+	class Erreur extends Controller{
 		public function __construct(){
 			parent:__construct();
-			
 		}
 		
-		public function view($nbvue){
-			
+		public function 404(){
+			$this->render("404");
 		}
 	}
 ?>

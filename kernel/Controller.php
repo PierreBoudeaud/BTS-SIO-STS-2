@@ -1,24 +1,25 @@
 <?php
 	class Controller{
 		
-		
-		public __contruct($model){
-			/*foreach($model as $){
-				$this->loadmodel($model);
-			}*/
+		public function __contruct(/*$model*/){
+				//$this->loadmodel($model);
 		}
 		
-		public loadmodel($model){
+		public function loadmodel($model){
 			require_once(MODEL.$model.".php");
 			$this->$model = new $model();
 		}
 		
-		public set(){
+		public function set(){
 			
 		}
 		
-		public render(){
+		public function render($model){
 			
+			ob_start();
+			include(VIEW.$model.".php");
+			$content = ob_get_clean();
+			//appel du template
 		}
 	}
 ?>
