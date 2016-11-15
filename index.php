@@ -14,9 +14,9 @@
 	define("CONF", ROOT."conf/");//Racine du dossier conf
 	
 	
-	echo '<pre>';
+	/*echo '<pre>';
 		print_r($_SERVER);//Affichage des informations serveur
-	echo '</pre>';
+	echo '</pre>';*/
 	
 	//Test controller
 	if (empty($_GET['p'])){
