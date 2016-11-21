@@ -42,7 +42,7 @@
 		*		@date 04/10/2016
 		*/
 		protected function connexion(){
-			$ini_parse = parse_ini_file("/conf/bdd.ini", true);//Fichier de configuration
+			$ini_parse = parse_ini_file(CONF."bdd.ini", true);//Fichier de configuration
 			$dsn = $ini_parse['database']['type'].":dbname=".$ini_parse['database']['dbName'].";host=".$ini_parse['database']['host'].";port=".$ini_parse['database']['port'];
 			try{
 				$DB = new PDO($dsn, $ini_parse['database']['pseudo'], $ini_parse['database']['mdp']);

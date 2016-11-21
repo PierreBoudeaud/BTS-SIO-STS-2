@@ -5,7 +5,7 @@
 	*		@version 1.0
 	*/
 	
-	include('Model.php');
+	include(APP.'Model.php');
 	
 	class Employe extends Model {
 		//Attributs métier

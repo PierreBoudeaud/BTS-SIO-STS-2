@@ -1,61 +1,57 @@
 <?php
-	echo "
-	<!DOCTYPE html>
-	<html>
-	<meta charset='UTF-8'>";
+	/**
+	*	@author BOUDEAUD P
+	*	@date 08/11/2016
+	*
+	*/
 	
-	include ('\kernel\Employe.php');
-			
-	$unEmploye = new Employe ("","","", "", "", "", "", "", "", "", "");
-	print_r ($unEmploye);
-	if($unEmploye->read("A02")){
-		print_r ($unEmploye);
-		echo "<br><br>";
-		echo "Votre Matricule : {$unEmploye->getMatricule()}<br/>";
-		echo "Votre identité : {$unEmploye->getNom()} {$unEmploye->getPrenom()}<br/>";
-		echo "Vous habitez : {$unEmploye->getRue()} {$unEmploye->getVille()} {$unEmploye->getCodePostal()}<br/>";
-		echo "Votre email : {$unEmploye->getEmail()}<br/>";
-		echo "Vos coordonées telephoniques : Fixe : {$unEmploye->getTel()} Portable : {$unEmploye->getPortable()}<br/>";
-		echo "Votre ancienneté : {$unEmploye->getDateEmbauche()}<br/>";
-		echo "Votre quotité : {$unEmploye->getQuotite()}<br/>";
-		echo "<br>";
+	define("ROOT", str_replace("index.php", "", $_SERVER['SCRIPT_FILENAME']));//Racine du serveur
+	define("WEBROOT", str_replace("index.php", "", $_SERVER['SCRIPT_NAME']));//Racine du projet
+	define("MODEL", ROOT."kernel/Model/");//Racine du dossier Model
+	define("CONTROLLER", ROOT."kernel/Controller/");//Racine du dossier Controller
+	define("VIEW", ROOT."kernel/View/");//Racine du dossier View
+	define("APP", ROOT."kernel/");//Racine du dossier kernel (Classes généraliste)
+	define("CONF", ROOT."conf/");//Racine du dossier conf
+	
+	
+	/*echo '<pre>';
+		print_r($_SERVER);//Affichage des informations serveur
+	echo '</pre>';*/
+	
+	//Test controller
+	if (empty($_GET['p'])){
+		$controller = "accueil";
+		$split = array();
+	}
+	else {
+		$split = explode("/", $_GET['p']);
+		$controller = $split['0'];
 	}
 	
-	echo "<br>Test Find<br>";
-	$a = $unEmploye->find("emp_nom = 'Boudeaud'");
-	print_r($a);
-	echo "<br><br>";
-	foreach($a as $value){
-		echo "Changement personne<br>";
-		foreach($value as $infos){
-		echo "{$infos}<br>";
-		}
-		echo "<br><br>";
+	//Test méthode
+	if (empty($split)){
+		$method = "index";
+	}
+	else {
+		$method = $split['1'];
 	}
 	
-	echo "<br/><br/>";
-	/*if($unEmploye->create()){
-		echo "<br>Enregistrement terminé";
+	require_once(CONTROLLER.$controller.".php");
+	$objet = new $controller();
+	
+	if(method_exists($objet, $method)){
+		unset($split['0']);
+		unset($split['1']);
+		call_user_func_array(array($controller, $method), $split);
 	}
 	else{
-		echo "<br>Erreur pendant l'enregistrement";
-	}*/
+		require(CONTROLLER."Erreur.php")
+		$erreur = new Erreur();
+		print_r($erreur);
+		$erreur->404();
+	}
 	
-	echo "<br/><br/>";
-	//$unEmploye->update();
 	
-	if($unEmploye->lineExist('A02')){
-				echo "Index::Un ou plusieurs résultats";
-			}
-			else{
-				echo "Index::Aucun résultats";
-			}
-	echo "</html>";
-	if($unEmploye->delete("A03")){
-				echo "Index::Un ou plusieurs résultats";
-			}
-			else{
-				echo "Index::Aucun résultats";
-			}
-	//echo ini_get("display_errors");
-?>
+	echo ROOT. "<br>".WEBROOT. "<br>".MODEL. "<br>".CONTROLLER. "<br>".VIEW. "<br>".APP. "<br>".CONF; //[TEST] Affichage des CONSTANTES
+
+	?>
