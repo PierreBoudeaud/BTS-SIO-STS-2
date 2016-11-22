@@ -7,6 +7,7 @@ html, body{
 #content{
 	text-align: center;
 	background-color: #C4D7ED;
+	height : 90%; 
 }
 
 
@@ -19,6 +20,9 @@ html, body{
 /* =============================== */
 #userpanel{
 	background-color: #E1E6FA;
+}
+#userpanel img{
+	max-width:20px;
 }
 
 #menuNavigation{

@@ -12,19 +12,19 @@
 	</head>
 	
 	<body>
-		<div 'header'>
+		<div id='header'>
 			<?php echo $header; ?>
 		</div>
 		
-		<div class='userpanel'>
+		<div id='userpanel'>
 			<?php echo $userpanel; ?>
 		</div>
 		
-		<div class='content'>
+		<div id='content'>
 			<?php echo $content; ?>
 		</div>
 		
-		<div class="footer">
+		<div id="footer">
 			<?php echo $footer; ?>
 		</div>
 	</body>
