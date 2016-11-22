@@ -1,5 +1,6 @@
 <div id='content'>
 	<center>
+	<?php echo "<a href='".WEBROOT."/employe/new'>Nouvel employé</a>";?>
 		<table>
 			<tr>
 				<th>Matricule</th>

@@ -22,5 +22,9 @@
 			$this->set($this->Employes->find());
 			$this->render('list');
 		}
+		
+		public function new(){
+			$this->render('new');
+		}
 	}
 ?>
