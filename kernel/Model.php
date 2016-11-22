@@ -180,8 +180,12 @@
 		*		@author LUTAU T
 		*		@date 27/09/2016
 		*/
-		public function find($condition){
-			$req = "SELECT * FROM {$this->table} WHERE {$condition}";
+		public function find($condition = null){
+			$req = "SELECT * FROM {$this->table}";
+			
+			if($condition != null){
+				$req = $req."WHERE {$condition}";
+			}
 			$bdd = $this->connexion();
 			$rep = $bdd->query($req);
 			while($result = $rep->fetch(PDO::FETCH_ASSOC)){
@@ -193,6 +197,16 @@
 				$tmp[][] = null;
 			}
 		return($tmp);
+		}
+		
+		public function totable(){
+			$tab = array();
+			foreach($this as $key=>$val){
+					if(!in_array($key, $this->attribTech)){
+						$tab[$key] = $val;
+					}
+				}
+			return $tab;
 		}
 	}
 	
