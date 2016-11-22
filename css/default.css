@@ -1,7 +1,70 @@
-html{
-	background-color: grey;
+html, body{
+	
 }
 
-.content{
-	text-align : center;
+
+
+#contenu{
+	text-align: center;
+	background-color: #E1E6FA;
 }
+
+
+
+#header{
+	background-color: #375D81;
+}
+
+
+/* =============================== */
+#userpanel{
+	background-color: #E1E6FA;
+}
+
+#menuNavigation{
+	background-color: #E1E6FA;
+}
+
+#connexion{
+
+}
+
+.listeMenu{
+	
+}
+
+.elementMenu{
+	
+}
+
+.elementMenu:hover{
+	
+}
+
+.element-Menu-Actif{
+		
+}
+
+.element-Menu-Actif:hover{
+	
+}
+
+
+.lien-menu{
+	
+}
+
+.lien-menu:hover{
+	
+}
+
+.lien-menu:visited{
+	
+}
+/* =============================== */
+
+
+
+#footer{
+	background-color: #ABC8E2;
+}	
