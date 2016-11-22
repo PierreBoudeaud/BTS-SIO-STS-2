@@ -7,7 +7,7 @@
 	
 	include(APP.'Model.php');
 	
-	class Employe extends Model {
+	class Employes extends Model {
 		//Attributs métier
 		protected $emp_matricule;
 		protected $emp_nom;
@@ -21,7 +21,7 @@
 		protected $emp_dateembauche;
 		protected $emp_quotite;
 		
-		public function __construct($emp_matricule, $emp_nom, $emp_prenom, $emp_rue, $emp_ville, $emp_codepostal, $emp_tel, $emp_portable, $emp_email, $emp_dateembauche, $emp_quotite){
+		public function __construct($emp_matricule = null, $emp_nom = null, $emp_prenom = null, $emp_rue = null, $emp_ville = null, $emp_codepostal = null, $emp_tel = null, $emp_portable = null, $emp_email = null, $emp_dateembauche = null, $emp_quotite = null){
 			parent::__construct("employe", "emp_matricule", false);
 			$this->emp_matricule = $emp_matricule;
 			$this->emp_nom = $emp_nom;

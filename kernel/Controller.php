@@ -25,7 +25,7 @@
 		*	set - Prépare variables pour la vue
 		*	@param $v variable array() venant du controller
 		*/
-		public function set($v){
+		public function set($v = array()){
 			$this->viewvar = array_merge($this->viewvar, $v);
 		}
 		
