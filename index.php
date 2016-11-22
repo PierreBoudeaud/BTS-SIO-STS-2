@@ -12,6 +12,7 @@
 	define("VIEW", ROOT."kernel/View/");//Racine du dossier View
 	define("APP", ROOT."kernel/");//Racine du dossier kernel (Classes généraliste)
 	define("CONF", ROOT."conf/");//Racine du dossier conf
+	define("CSS", WEBROOT."css/");//Racine du dossier conf
 	
 	
 	/*echo '<pre>';
@@ -38,20 +39,18 @@
 	
 	require_once(CONTROLLER.$controller.".php");
 	$objet = new $controller();
-	
+
 	if(method_exists($objet, $method)){
 		unset($split['0']);
 		unset($split['1']);
-		call_user_func_array(array($controller, $method), $split);
+		call_user_func_array(array($objet, $method), $split);
 	}
 	else{
-		require(CONTROLLER."Erreur.php")
-		$erreur = new Erreur();
-		print_r($erreur);
-		$erreur->404();
+		$controller = "erreur";
+		$method = "e404";
+		require_once(CONTROLLER.$controller.".php");
+		$erreur = new $controller();
+		call_user_func_array(array($erreur, $method), array());
 	}
 	
-	
-	echo ROOT. "<br>".WEBROOT. "<br>".MODEL. "<br>".CONTROLLER. "<br>".VIEW. "<br>".APP. "<br>".CONF; //[TEST] Affichage des CONSTANTES
-
 	?>
