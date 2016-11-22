@@ -13,7 +13,7 @@
 	define("APP", ROOT."kernel/");//Racine du dossier kernel (Classes généraliste)
 	define("CONF", ROOT."conf/");//Racine du dossier conf
 	define("CSS", WEBROOT."css/");//Racine du dossier css
-	define("IMG", WEBROOT."img/");//Racine du dossier imd
+	define("IMG", WEBROOT."img/");//Racine du dossier img
 	
 	
 	/*echo '<pre>';
