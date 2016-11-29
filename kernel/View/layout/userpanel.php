@@ -3,8 +3,7 @@
 	
 	
 	
-	
-	
+
 	if($isConnected){
 		$nomUtil_BDD = "Laedoline";
 		$imgUtil_BDD = "gwentitia.png";
@@ -21,7 +20,6 @@
 							."Connexion"
 							."</a>";
 	}
-	
 	
 	
 	$userpanel=
