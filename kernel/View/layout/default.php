@@ -17,12 +17,11 @@
 	<body>
 		<div id='header'>
 			<?php echo $header; ?>
+			<div id='userpanel'>
+				<?php echo $userpanel; ?>
+			</div>
 		</div>
-		
-		<div id='userpanel'>
-			<?php echo $userpanel; ?>
-		</div>
-		
+            
 		<div id='content'>
 			<?php echo $content; ?>
 		</div>
