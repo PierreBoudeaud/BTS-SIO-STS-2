@@ -4,6 +4,7 @@
 }
 
 html, body{
+	font-family: century gothic;
 	background-color: #F3F2F0;
 	height:100%;
 }
@@ -41,6 +42,7 @@ html, body{
 	margin-right: 10px;
 	float: right;
 	border-radius: 0px 0px 10px 10px;
+	
 }
 
 #imgUtilisateur{
@@ -50,6 +52,12 @@ html, body{
         border-radius: 50%;
 }
 
+#infosUtilisateur{
+	float:right;
+	font-size:80%;
+	vertical-align: middle;
+	text-align: middle;
+}
 
 #menuNavigation{
 	background-color: #424A8C;
