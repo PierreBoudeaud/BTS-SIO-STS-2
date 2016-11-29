@@ -5,21 +5,23 @@
 
 html, body{
 	background-color: #F3F2F0;
+	height:100%;
 }
 
 
 
 #content{
 	text-align: center;
-	background-color: #C2C6D8;
+	background-color: #cccccc;
+	height: calc(100% - 175px);
 }
 
 
 
 #header{
-	background-color: #cccccc;
+	background-color: #424A8C;
 	width: 100%;
-	height: 125px;
+	height: 100px;
 	margin:0px;
 	padding:0px;
 }
@@ -27,17 +29,20 @@ html, body{
 
 /* =============================== */
 #userpanel{
-	background-color: #424A8C;
+	background-color: #C2C6D8;
 	postion: relative;
-	width: 10%;
+	width: 10em;
 	height: 50%;
+	padding: 5px;
 	margin-right: 10px;
 	float: right;
-	vertical-align: middle;
+	border-radius: 0px 0px 10px 10px;
 }
 
 #imgUtilisateur{
-	height: 90%;
+	display:inline-block;
+	vertical-align:middle;
+	height: 100%;
 }
 
 #menuNavigation{
@@ -86,4 +91,6 @@ html, body{
 
 #footer{
 	background-color: #424A8C;
+	height: 75px;
+	float:bottom;
 }	
