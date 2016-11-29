@@ -1,6 +1,7 @@
 <?php
 	require_once(VIEW."layout/header.php");
 	require_once(VIEW."layout/userpanel.php");
+	require_once(VIEW."layout/navigation.php");
 	require_once(VIEW."layout/footer.php");
 ?>
 <!DOCTYPE html>
@@ -17,8 +18,13 @@
 	<body>
 		<div id='header'>
 			<?php echo $header; ?>
+			
 			<div id='userpanel'>
 				<?php echo $userpanel; ?>
+			</div>
+			
+			<div id='navigation'>
+				<?php echo $navigation; ?>
 			</div>
 		</div>
             
