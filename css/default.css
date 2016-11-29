@@ -1,31 +1,61 @@
+*{
+	margin:0px;
+	padding: 0px;
+}
+
 html, body{
-	
+	background-color: #F3F2F0;
+	height:100%;
 }
 
 
 
-#contenu{
+#content{
 	text-align: center;
-	background-color: #E1E6FA;
+	background-color: #cccccc;
+	height: calc(100% - 175px);
 }
 
 
 
 #header{
-	background-color: #375D81;
+	background-color: #424A8C;
+	width: 100%;
+	height: 100px;
+	margin:0px;
+	padding:0px;
+}
+
+#header a, #header a hover{
+    color : red;
 }
 
 
 /* =============================== */
 #userpanel{
-	background-color: #E1E6FA;
+	background-color: #C2C6D8;
+	postion: relative;
+	width: 10em;
+	height: 50%;
+	padding: 5px;
+	margin-right: 10px;
+	float: right;
+	border-radius: 0px 0px 10px 10px;
 }
+
+#imgUtilisateur{
+	display:inline-block;
+	vertical-align:middle;
+	height: 100%;
+        border-radius: 50%;
+}
+
 
 #menuNavigation{
-	background-color: #E1E6FA;
+	background-color: #424A8C;
 }
 
-#connexion{
+.connexion{
 
 }
 
@@ -66,5 +96,8 @@ html, body{
 
 
 #footer{
-	background-color: #ABC8E2;
+        text-align: center;
+	background-color: #424A8C;
+	height: 75px;
+	float:bottom;
 }	
